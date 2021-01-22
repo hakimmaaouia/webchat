@@ -1,0 +1,10 @@
+.container{
+    background:#fff;
+    justify-content:left;
+    text-align:left;
+    align-items:initial;   
+}
+.header{
+    background: #7f7992;
+    height:60px;
+}
