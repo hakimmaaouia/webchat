@@ -9,6 +9,8 @@ const Messages=({socket}:any)=>{
         setmessages(messages => [...messages, message]);
       })
     },[])
+    console.log(messages);
+    
     return(
         <div className="chatbox"> 
         {messages.map((message:any, i:any) =><Message  key={i} message={message}/>)}
