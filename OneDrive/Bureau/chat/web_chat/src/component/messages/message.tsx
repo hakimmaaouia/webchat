@@ -1,6 +1,7 @@
 import React from "react";
 import "./message.css";
 import Avatar from "@material-ui/core/Avatar";
+import EmojiPicker from 'interweave-emoji-picker';
 const Adminmessage=({
   message: {
     Name,

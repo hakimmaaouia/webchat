@@ -5,7 +5,7 @@ import Messages from "../messages/messages";
 import Input from "../input/input";
 import "./chat.css"
 const Chat = ({ location }: any) => {
-  const ENDPOINT = "localhost:5000";
+  const ENDPOINT = "https://server-8chat.herokuapp.com/";
   const { Name, Room }: any = queryString.parse(location.search);
   const [socket, setsocket] = useState<any>();
   useEffect(() => {
