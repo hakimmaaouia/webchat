@@ -1,8 +1,8 @@
 .send{
     overflow: hidden;
-    background: #b3a6db;
+    background:#D38B5D;
     padding: 10px;
-    border-radius:3px 3px 0px 0px;
+    border-radius:3px;
 }
 
 
@@ -11,8 +11,7 @@
     position: absolute;
 }
 .inputmessage{
-    width: 380px;
-    
+    width:70%;
     background: #fff;
    border:#a8a6ad solid 1px;
 }

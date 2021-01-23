@@ -58,6 +58,7 @@ const Input = ({ socket, Room, Name }: any) => {
         color="primary"
         onClick={(e) => sendmessage(e)}
         endIcon={<SendOutlined />}
+        style={{color:"#f3ffb6",background:"#12496d"}}
       >
         Send
       </Button>

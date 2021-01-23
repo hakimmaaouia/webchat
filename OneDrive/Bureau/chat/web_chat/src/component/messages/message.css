@@ -24,7 +24,8 @@
 
   .message-box{
     margin-left:20px ;
-    background: #b3a6db;
+    background: #12496d
+;
     display:block;
      padding: 15px;
      border-radius: 0px 5px 5px 5px;
@@ -33,10 +34,20 @@
      letter-spacing: 0;
      display: inline-block;
      Max-width:65%; 
+     color:#F3FFB6;
   }
   .centre{
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
+  }
+
+
+
+  .test{
+    position: relative;
+    display: inline-block;
+    float: left;
+    align-self: flex-end;
   }

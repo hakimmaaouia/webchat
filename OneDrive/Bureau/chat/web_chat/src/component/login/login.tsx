@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import image from "../../assets/8.svg"
 
 import {
     Link
@@ -11,7 +12,7 @@ import {
    const [Room,setRoom]=useState("");  
     return (
       <div style={{lineHeight:"50px"}}>
-      <div style={{color:"#ffffff",fontSize:"35px",fontWeight:"bold"}}>join</div>
+        <img src={image} height="100px" width="100px"></img>    <div style={{color:"#D38B5D",fontSize:"35px",fontWeight:"bold"}}>join</div>
       
 <hr style={{height:"1px",background:"#000", border:"1px solid #000", width:"65%"}}></hr>
    <div>

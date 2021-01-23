@@ -6,9 +6,9 @@
     
 }
 .header{
-    background: #b3a6db;
+    background: #D38B5D;
     height:60px;
-    border-radius:0px 0px 3px 3px;
+    border-radius:3px;
 }
 .room {
     padding: 16px;

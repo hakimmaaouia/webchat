@@ -28,7 +28,7 @@ const Usermessage=({
 }: any)=>{
 return(
   <div className="containerMessage">
-  <div style={{ display: "flex" }}>
+  <div style={{ display: "flex"}}>
     <Avatar>{Name[0].toUpperCase()}</Avatar>
     <div className="data_name">
       <span>{Name}</span>{" "}
@@ -43,6 +43,32 @@ return(
 </div>
 )
 }
+
+const Mymessage=({
+  message: {
+    Name,
+    message,
+    dates: { date, date_ob, hours, minutes, month, seconds, year },
+  },
+}: any)=>{
+return(
+<div  >
+    <div>
+     
+      <span>
+        {hours}:{minutes}:{seconds} {year}/{month}/{date}
+      </span>
+      {"  "} <span>{Name}</span>{"  "}
+    <Avatar>{Name[0].toUpperCase()}</Avatar>
+  </div>
+  </div>
+ 
+
+
+)
+}
+
+
 
 const Message = ({message}: any) => {
   console.log(message.Name);
