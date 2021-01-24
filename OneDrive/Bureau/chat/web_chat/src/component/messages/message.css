@@ -1,6 +1,8 @@
 .chatbox{
     height: 400px;
-    overflow: auto;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 .containerMessage{

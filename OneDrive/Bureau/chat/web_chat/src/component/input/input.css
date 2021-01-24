@@ -15,3 +15,12 @@
     background: #fff;
    border:#a8a6ad solid 1px;
 }
+
+
+@media screen and (max-width: 700px) {
+    .inputmessage{
+        width:65%;
+        background: #fff;
+       border:#a8a6ad solid 1px;
+    }
+  }

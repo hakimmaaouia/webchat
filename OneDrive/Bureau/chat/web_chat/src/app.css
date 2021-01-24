@@ -14,3 +14,11 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
+
+
+@media screen and (max-width: 700px) {
+    .app{
+        transform: scale(1.1);
+    }
+    }

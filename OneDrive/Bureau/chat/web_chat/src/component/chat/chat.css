@@ -1,14 +1,14 @@
 .container{
-    background:#fff;
-    justify-content:left;
-    text-align:left;
-    align-items:initial;   
+    background:#fff; 
     
 }
 .header{
     background: #D38B5D;
     height:60px;
     border-radius:3px;
+    justify-content:left;
+    text-align:left;
+    align-items:initial;  
 }
 .room {
     padding: 16px;
