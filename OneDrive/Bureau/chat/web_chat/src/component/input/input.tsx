@@ -13,7 +13,9 @@ const Input = ({ socket, Room, Name }: any) => {
   );
   const [message, setmessage] = useState("");
   const sendmessage = (event: any) => {
+    if (message.length>1){
     socket?.emit("sendmessage", { message, Room, Name });
+    }
     setmessage("");
   };
 
