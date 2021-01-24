@@ -45,9 +45,34 @@
 
 
 
-  .test{
-    position: relative;
+
+  .my-message-box{
+    margin-right: 20px;
+    border:1px solid #12496d;
+    Max-width:65%; 
+    padding: 15px;
+    border-radius: 5px 0px 5px 5px;
+    font-size: 12px;
+    word-wrap: break-word;
+    letter-spacing: 0;
     display: inline-block;
-    float: left;
-    align-self: flex-end;
+  }
+
+  .my-message-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: stretch;
+    margin: 25px 10px;
+  }
+
+  .my-message-descreption{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: stretch;
   }

@@ -52,30 +52,31 @@ const Mymessage=({
   },
 }: any)=>{
 return(
-<div  >
-    <div>
-     
-      <span>
+<div className="my-message-container" >
+<div className="my-message-descreption">
+<div className="data_name">
+      <span className="message-data-time">
         {hours}:{minutes}:{seconds} {year}/{month}/{date}
       </span>
-      {"  "} <span>{Name}</span>{"  "}
-    <Avatar>{Name[0].toUpperCase()}</Avatar>
+      <span>  {Name}  </span>{" "}
+    </div>
+     <Avatar>{Name[0].toUpperCase()}</Avatar>
+</div>
+  <div className="my-message-box">
+{message}
   </div>
-  </div>
- 
-
+</div>
 
 )
 }
 
 
 
-const Message = ({message}: any) => {
-  console.log(message.Name);
-  
+const Message = ({message,Name}: any) => {
+  console.log(Name)
   return (
    <div>
-    {message.Name==="admin"?<Adminmessage message={message}/>:<Usermessage message={message}/>}
+    {message.Name==="admin"?<Adminmessage message={message}/>:(Name===message.Name)?<Mymessage message={message}/>:<Usermessage message={message}/>}
      </div>
   );
 };

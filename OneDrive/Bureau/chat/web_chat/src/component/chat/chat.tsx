@@ -21,7 +21,7 @@ const Chat = ({ location }: any) => {
   return (
     <div className="container">
       <div className="header"><div className="room"><span className="cercle"></span>  {Room}</div></div>
-      {socket ? <Messages socket={socket} /> : null}
+      {socket ? <Messages socket={socket}  Name={Name} /> : null}
       {socket ? <Input socket={socket} Room={Room} Name={Name} /> :null}
     </div>
   );
