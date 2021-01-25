@@ -15,12 +15,22 @@
     background: #fff;
    border:#a8a6ad solid 1px;
 }
-
-
 @media screen and (max-width: 700px) {
     .inputmessage{
         width:65%;
         background: #fff;
        border:#a8a6ad solid 1px;
     }
+  
+    .hidden {
+        display: none;
+     }  
+
+     .inputmessage{
+        width:70%;
+        background: #fff;
+       border:#a8a6ad solid 1px;
+       margin: 0px 12px;
+    }
+
   }

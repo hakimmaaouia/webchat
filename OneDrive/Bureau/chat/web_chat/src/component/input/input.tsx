@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Button from "@material-ui/core/Button";
 import InputBase from "@material-ui/core/InputBase";
 import Picker from "emoji-picker-react";
@@ -13,7 +13,7 @@ const Input = ({ socket, Room, Name }: any) => {
   );
   const [message, setmessage] = useState("");
   const sendmessage = (event: any) => {
-    if (message.length>1){
+    if (message.trim().length>1){
     socket?.emit("sendmessage", { message, Room, Name });
     }
     setmessage("");
@@ -34,26 +34,37 @@ const Input = ({ socket, Room, Name }: any) => {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
+  const is_typing=()=>{
+    socket.emit("typing", {typing:true,Name,Room});
+  }
+
+
+
   return (
     <div className="send">
       <InputBase
         placeholder="Message"
         inputProps={{ "aria-label": "Message" }}
         onChange={(event) => setmessage(event.target.value)}
-        onKeyDown={(event) =>
-          event.key === "Enter" ? sendmessage(event) : null
+        onKeyDown={(event) =>{is_typing()
+          if(event.key === "Enter"){
+            sendmessage(event)
+          }
+          }
         }
         value={message}
         className="inputmessage"
       />
-
+<span className="hidden">
       <IconButton
         aria-label="emoji"
         aria-describedby={id}
         onClick={handleClick}
+        
       >
         <SmileOutlined />
       </IconButton>
+    </span>
       <Button
         size="medium"
         variant="contained"

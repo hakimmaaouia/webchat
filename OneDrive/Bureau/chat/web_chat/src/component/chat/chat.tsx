@@ -5,7 +5,7 @@ import Messages from "../messages/messages";
 import Input from "../input/input";
 import "./chat.css";
 const Chat = ({ location }: any) => {
-  const ENDPOINT = "https://server-8chat.herokuapp.com/";
+  const ENDPOINT = "http://127.0.0.1:5000/";
   
   const { Name, Room }: any = queryString.parse(location.search);
   const [socket, setsocket] = useState<any>();
@@ -16,6 +16,7 @@ const Chat = ({ location }: any) => {
     });
     setsocket(sockets);
     sockets.emit("join", { Name, Room });
+
   }, [ENDPOINT, location.search]);
 
   return (

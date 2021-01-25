@@ -1,6 +1,8 @@
 .container{
     background:#fff; 
-    
+    justify-content:left;
+    text-align:left;
+    align-items:initial;  
 }
 .header{
     background: #D38B5D;

@@ -21,7 +21,16 @@ io.on("connection", (socket) => {
   });
   socket.on("sendmessage", ({ message, Room, Name }) => {
     io.to(Room).emit("messages", { Name, message,dates:time()});
+    
   });
+
+
+
+socket.on("typing",({typing,Name,Room})=>{
+  socket.to(Room).emit("ntyping",{Name,typing})
+})
+
+
   socket.on("disconnect", () => {
     console.log("left!!!!");
   });
