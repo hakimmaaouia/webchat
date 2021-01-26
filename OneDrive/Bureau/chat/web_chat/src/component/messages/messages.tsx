@@ -13,13 +13,24 @@ const Messages = ({ socket, Name }: any) => {
       }
     });
   }, []);
-
+  const [typing, settyping] = useState<any>({ typing: false, Name: "" });
   useEffect(() => {
-    socket.on("ntyping", ({ Name,typing }: any) => {
-      console.log(typing);
+    socket.on("ntyping", ({ Name, typing }: any) => {
+      settyping({ typing, Name });
     });
   }, []);
   const messageEl = useRef<HTMLInputElement>(null);
+
+  const typing_display = (Name: any) => {
+    return (
+      <>
+        {Name}  is typing
+        <span className="typing-dot"></span>
+        <span className="typing-dot"></span>
+        <span className="typing-dot"></span>
+      </>
+    );
+  };
 
   return (
     <div>
@@ -28,7 +39,10 @@ const Messages = ({ socket, Name }: any) => {
           <Message key={i} message={message} Name={Name} />
         ))}
       </div>
-      <div>is typing</div>
+
+      <div className="typing_container">
+        {typing.typing ? typing_display(typing.Name) : null}
+      </div>
     </div>
   );
 };

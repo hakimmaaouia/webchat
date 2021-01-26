@@ -27,6 +27,7 @@ io.on("connection", (socket) => {
 
 
 socket.on("typing",({typing,Name,Room})=>{
+  console.log(typing);
   socket.to(Room).emit("ntyping",{Name,typing})
 })
 

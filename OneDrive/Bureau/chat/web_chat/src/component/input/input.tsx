@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import InputBase from "@material-ui/core/InputBase";
 import Picker from "emoji-picker-react";
@@ -13,8 +13,8 @@ const Input = ({ socket, Room, Name }: any) => {
   );
   const [message, setmessage] = useState("");
   const sendmessage = (event: any) => {
-    if (message.trim().length>1){
-    socket?.emit("sendmessage", { message, Room, Name });
+    if (message.trim().length > 1) {
+      socket?.emit("sendmessage", { message, Room, Name });
     }
     setmessage("");
   };
@@ -34,11 +34,21 @@ const Input = ({ socket, Room, Name }: any) => {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
-  const is_typing=()=>{
-    socket.emit("typing", {typing:true,Name,Room});
-  }
+  let timeout: any;
+  timeout = 2000;
+  const [typing, settyping] = useState(false);
 
-
+  const keyup = () => {
+    console.log("happening");
+    settyping(true);
+    socket.emit("typing", { typing, Name, Room });
+    clearTimeout(timeout);
+    timeout = setTimeout(is_typing, 2000);
+  };
+  const is_typing = () => {
+    settyping(false);
+    socket.emit("typing", { typing, Name, Room });
+  };
 
   return (
     <div className="send">
@@ -46,32 +56,31 @@ const Input = ({ socket, Room, Name }: any) => {
         placeholder="Message"
         inputProps={{ "aria-label": "Message" }}
         onChange={(event) => setmessage(event.target.value)}
-        onKeyDown={(event) =>{is_typing()
-          if(event.key === "Enter"){
-            sendmessage(event)
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            sendmessage(event);
           }
-          }
-        }
+        }}
         value={message}
+        onKeyUp={() => keyup()}
         className="inputmessage"
       />
-<span className="hidden">
-      <IconButton
-        aria-label="emoji"
-        aria-describedby={id}
-        onClick={handleClick}
-        
-      >
-        <SmileOutlined />
-      </IconButton>
-    </span>
+      <span className="hidden">
+        <IconButton
+          aria-label="emoji"
+          aria-describedby={id}
+          onClick={handleClick}
+        >
+          <SmileOutlined />
+        </IconButton>
+      </span>
       <Button
         size="medium"
         variant="contained"
         color="primary"
         onClick={(e) => sendmessage(e)}
         endIcon={<SendOutlined />}
-        style={{color:"#f3ffb6",background:"#12496d"}}
+        style={{ color: "#f3ffb6", background: "#12496d" }}
       >
         Send
       </Button>
