@@ -1,7 +1,6 @@
 const app = require("express")();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
-const { join } = require("path");
 const router = require("./router");
 const { adduser, deleteuser, getUsersInRoom } = require("./users/users");
 const {time}= require("./time");
@@ -11,7 +10,7 @@ app.use(cors());
 io.on("connection", (socket) => {
   console.log("connection")
   socket.on("join", ({ Name, Room }) => {
-    const add = adduser(Name, Room);
+    const add = adduser(Name, Room,socket.id);
     socket.join(Room);
     io.to(Room).emit("messages", {
       Name: "admin",
@@ -27,13 +26,22 @@ io.on("connection", (socket) => {
 
 
 socket.on("typing",({typing,Name,Room})=>{
-  console.log(typing);
   socket.to(Room).emit("ntyping",{Name,typing})
 })
 
 
   socket.on("disconnect", () => {
-    console.log("left!!!!");
+   room=deleteuser(socket.id)
+   if (room!="last"){
+    socket.to(room.room).emit("ntyping",{Name:room.name,typing:false})
+    io.to(room.room).emit("messages", {
+     Name: "admin",
+     message: `${room.name} has left the room `,
+     dates:time()
+   });
+   }
+  
+  
   });
 });
 
