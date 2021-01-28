@@ -26,11 +26,13 @@
         display: none;
      }  
 
-     .inputmessage{
-        width:70%;
-        background: #fff;
-       border:#a8a6ad solid 1px;
-       margin: 0px 12px;
-    }
 
+
+     .send{
+        overflow: hidden;
+        background:#D38B5D;
+        padding: 10px;
+        border-radius:3px;
+    }
+    
   }
