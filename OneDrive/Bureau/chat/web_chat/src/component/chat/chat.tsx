@@ -17,7 +17,7 @@ const Chat = ({ location }: any) => {
     setsocket(sockets);
     sockets.emit("join", { Name, Room });
 
-  }, [ENDPOINT, location.search]);
+  }, [ENDPOINT, location.search,Name,Room]);
 
   return (
     <div className="container">

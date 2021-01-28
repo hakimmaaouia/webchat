@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import InputBase from "@material-ui/core/InputBase";
 import Picker from "emoji-picker-react";
@@ -39,7 +39,6 @@ const Input = ({ socket, Room, Name }: any) => {
   const [typing, settyping] = useState(false);
 
   const keyup = () => {
-    console.log("happening");
     settyping(true);
     socket.emit("typing", { typing, Name, Room });
     clearTimeout(timeout);

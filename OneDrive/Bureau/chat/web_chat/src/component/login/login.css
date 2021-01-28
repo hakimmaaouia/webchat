@@ -6,7 +6,7 @@ width:100px;
 
 img:hover{
  
-    animation: spinner 1s infinite ;
+    animation: spinner 1s ease;
 }
 @-webkit-keyframes spinner {
     0% { -webkit-transform: rotate(0deg)scale(2);    }

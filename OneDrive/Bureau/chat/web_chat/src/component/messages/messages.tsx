@@ -12,13 +12,13 @@ const Messages = ({ socket, Name }: any) => {
         messageEl.current.scrollTo(0, scroll);
       }
     });
-  }, []);
+  },[socket]);
   const [typing, settyping] = useState<any>({ typing: false, Name: "" });
   useEffect(() => {
     socket.on("ntyping", ({ Name, typing }: any) => {
       settyping({ typing, Name });
     });
-  }, []);
+  }, [socket]);
   const messageEl = useRef<HTMLInputElement>(null);
 
   const typing_display = (Name: any) => {
